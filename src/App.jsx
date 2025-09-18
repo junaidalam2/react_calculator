@@ -8,6 +8,10 @@ import './css/App.css'
 function App() {
   const [input, SetInput] = useState('')
 
+  const handleClear = () => {
+    SetInput('');
+  }
+
   const handleButtonClick = (value) => {
 
     if (value === '=') {
@@ -27,6 +31,7 @@ function App() {
     <div className="calculator">
       <Display value={input} />
       <ButtonPanel onButtonClick={handleButtonClick} />
+      <button onClick={handleClear} >Clear</button>
     </div>
   );
 
