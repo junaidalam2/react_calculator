@@ -1,38 +1,34 @@
-//import { useState } from 'react'
+import { useState } from 'react'
 //https://medium.com/@gosagnik/building-a-simple-calculator-with-react-js-65a5a2fb43e2
-
-import './App.css'
-
-
-// function MyButton({ buttonText }) {
-
-//   return (
-//     <button>{buttonText}</button>
-//   )
-// }
+import ButtonPanel from './components/ButtonPanel'
+import Display from './components/Display'
+import './css/App.css'
 
 
 function App() {
+  const [input, SetInput] = useState('')
+
+  const handleButtonClick = (value) => {
+
+    if (value === '=') {
+      // Evaluate the expression
+      try {
+        SetInput(eval(input).toString());
+      } catch (error) {
+        SetInput('Error');
+      }
+    }
+    else {
+      SetInput(input + value);
+    }
+  }
 
   return (
-    <>
-      <button>0</button>
-      <button>1</button>
-      <button>2</button>
-      <button>3</button>
-      <button>4</button>
-      <button>5</button>
-      <button>6</button>
-      <button>7</button>
-      <button>8</button>
-      <button>9</button>
-      <button>+</button>
-      <button>-</button>
-      <button>x</button>
-      <button>÷</button>
-      <button>=</button>
-    </>
-  )
-}
+    <div className="calculator">
+      <Display value={input} />
+      <ButtonPanel onButtonClick={handleButtonClick} />
+    </div>
+  );
 
+}
 export default App

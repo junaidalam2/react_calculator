@@ -1,3 +1,5 @@
+import '../css/ButtonPanel.css'
+
 function ButtonPanel({ onButtonClick }) {
     const buttons = [
         '7', '8', '9', '/',

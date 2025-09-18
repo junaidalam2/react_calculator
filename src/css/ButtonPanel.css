@@ -1,0 +1,11 @@
+.button-panel {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+}
+
+button {
+    padding: 10px;
+    font-size: 1.5em;
+    background: #bdd1f2
+}
